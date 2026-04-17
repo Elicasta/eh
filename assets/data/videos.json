@@ -1,0 +1,80 @@
+[
+  {
+    "id": "vid001",
+    "title": "Faith That Speaks — Full Message",
+    "lessonId": "l002",
+    "series": "Faith That Speaks",
+    "date": "2025-09-07",
+    "duration": "48:22",
+    "views": 1240,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "Full Sunday message on aligning your confession with your conviction."
+  },
+  {
+    "id": "vid002",
+    "title": "Walking in Purpose — Series Opener",
+    "lessonId": "l005",
+    "series": "Walking in Purpose",
+    "date": "2026-03-02",
+    "duration": "41:15",
+    "views": 876,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "Series launch message exploring the theology of purpose and calling."
+  },
+  {
+    "id": "vid003",
+    "title": "Love in Action — Valentine's Message",
+    "lessonId": "l006",
+    "series": "Standalone",
+    "date": "2025-02-14",
+    "duration": "39:44",
+    "views": 2100,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "Unpacking 1 Corinthians 13 for real, practical daily love."
+  },
+  {
+    "id": "vid004",
+    "title": "Spiritual Fitness: Introduction",
+    "lessonId": null,
+    "series": "Spiritual Fitness",
+    "date": "2026-01-05",
+    "duration": "35:10",
+    "views": 654,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "Series launch — why spiritual discipline matters in the modern age."
+  },
+  {
+    "id": "vid005",
+    "title": "God's Design for Dependence",
+    "lessonId": "l003",
+    "series": "Spiritual Fitness",
+    "date": "2026-04-13",
+    "duration": "44:07",
+    "views": 412,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "The paradox of Kingdom strength — surrender leads to power."
+  },
+  {
+    "id": "vid006",
+    "title": "Walking in Purpose — Week 4",
+    "lessonId": null,
+    "series": "Walking in Purpose",
+    "date": "2026-03-30",
+    "duration": "46:33",
+    "views": 589,
+    "platform": "youtube",
+    "thumbnail": null,
+    "url": "#",
+    "description": "Practical steps for executing your God-given assignment."
+  }
+]

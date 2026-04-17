@@ -1,0 +1,51 @@
+[
+  {
+    "id": "s001",
+    "title": "Spiritual Fitness",
+    "subtitle": "Training the inner man for the work of God",
+    "description": "A deep-dive series on disciplines of the spirit — prayer, fasting, the Word, and rest. Built for the long haul.",
+    "color": "#FF6A2A",
+    "count": 8,
+    "status": "active",
+    "startDate": "2026-01-05",
+    "tags": ["holiness", "discipline", "prayer", "fasting"],
+    "lessonIds": ["l001", "l003"]
+  },
+  {
+    "id": "s002",
+    "title": "Unshaken",
+    "subtitle": "Standing firm in an unstable world",
+    "description": "Finding your foundation in God when everything around you is shifting. Anchored. Immovable. Unshaken.",
+    "color": "#4A9EFF",
+    "count": 6,
+    "status": "active",
+    "startDate": "2026-02-16",
+    "tags": ["faith", "courage", "stability", "trials"],
+    "lessonIds": ["l004"]
+  },
+  {
+    "id": "s003",
+    "title": "Faith That Speaks",
+    "subtitle": "The confessing, acting, believing life",
+    "description": "Faith is never passive. This series unpacks what it means to live, speak, and move in active, scripture-based faith.",
+    "color": "#34C759",
+    "count": 5,
+    "status": "completed",
+    "startDate": "2025-09-07",
+    "endDate": "2025-10-05",
+    "tags": ["faith", "confession", "action", "belief"],
+    "lessonIds": ["l002"]
+  },
+  {
+    "id": "s004",
+    "title": "Walking in Purpose",
+    "subtitle": "Discovering and executing God's plan for your life",
+    "description": "Purpose is not discovered by searching inward — it's revealed as we surrender outward. A series for the seeker.",
+    "color": "#9B6DFF",
+    "count": 7,
+    "status": "active",
+    "startDate": "2026-03-02",
+    "tags": ["purpose", "calling", "identity", "assignment"],
+    "lessonIds": ["l005"]
+  }
+]

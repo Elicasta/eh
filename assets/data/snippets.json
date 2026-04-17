@@ -1,0 +1,126 @@
+[
+  {
+    "id": "sn001",
+    "type": "thought",
+    "title": "The gap between revelation and execution",
+    "content": "Many pastors receive a word from God but never preach it because the gap between revelation and execution is filled with doubt. What if the word was given specifically because you were the right vessel at the right time?",
+    "tags": ["calling", "courage", "preaching"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-04-14T08:32:00Z"
+  },
+  {
+    "id": "sn002",
+    "type": "scripture",
+    "title": "Jeremiah 20:9 — Fire in the bones",
+    "content": "But if I say, 'I will not mention his word or speak anymore in his name,' his word is in my heart like a fire, a fire shut up in my bones. I am weary of holding it in; indeed, I cannot.",
+    "reference": "Jeremiah 20:9",
+    "translation": "NIV",
+    "tags": ["preaching", "calling", "burden", "fire"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-04-10T07:15:00Z"
+  },
+  {
+    "id": "sn003",
+    "type": "illustration",
+    "title": "The tree in the storm",
+    "content": "A sequoia tree withstands hurricane winds not because its trunk is the widest — but because its roots grow together with other sequoias underground. Community is the root system that holds you upright when the storm comes.",
+    "tags": ["community", "unshaken", "strength", "trials"],
+    "series": "s002",
+    "saved": false,
+    "timestamp": "2026-04-08T21:44:00Z"
+  },
+  {
+    "id": "sn004",
+    "type": "title-idea",
+    "title": "Message title: 'The Weight of the Word'",
+    "content": "A message on the seriousness of preaching and handling scripture. Could open a pastor's conference or a teaching series on homiletics.",
+    "tags": ["preaching", "scripture", "future-series"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-04-07T19:20:00Z"
+  },
+  {
+    "id": "sn005",
+    "type": "question",
+    "title": "Discussion: What does it mean to be fully surrendered?",
+    "content": "Is surrender a one-time event or a daily practice? How do you know when you've truly surrendered an area vs. just stopped fighting? Good discussion Q for young adults.",
+    "tags": ["surrender", "young adults", "discussion", "holiness"],
+    "series": "s001",
+    "saved": false,
+    "timestamp": "2026-04-05T16:10:00Z"
+  },
+  {
+    "id": "sn006",
+    "type": "quote",
+    "title": "A.W. Tozer on spiritual depth",
+    "content": "'The Bible was not given for our information but for our transformation.' — A.W. Tozer",
+    "tags": ["scripture", "transformation", "wisdom", "quote"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-04-03T10:05:00Z"
+  },
+  {
+    "id": "sn007",
+    "type": "illustration",
+    "title": "Dead phone in a power outage",
+    "content": "Imagine your phone is at 2% and the power goes out. You panic — not because you'll be without light, but because you'll lose connection. That's the believer who doesn't pray. Not afraid of the dark. Afraid of losing the signal.",
+    "tags": ["prayer", "connection", "illustration", "modern"],
+    "series": "s001",
+    "saved": true,
+    "timestamp": "2026-04-01T22:30:00Z"
+  },
+  {
+    "id": "sn008",
+    "type": "thought",
+    "title": "Revival isn't an event, it's a return",
+    "content": "We pray for revival like it's a concert that needs to be booked. But revival is simply the church returning to what it was always supposed to be. It's not new — it's original.",
+    "tags": ["revival", "prayer", "church", "restoration"],
+    "series": null,
+    "saved": false,
+    "timestamp": "2026-03-29T14:55:00Z"
+  },
+  {
+    "id": "sn009",
+    "type": "link",
+    "title": "Article: The science of habit formation for spiritual disciplines",
+    "content": "https://example.com/article — Research on neuroplasticity and how spiritual habits literally rewire the brain. Great data to reference in Spiritual Fitness series.",
+    "tags": ["spiritual disciplines", "habits", "science", "Spiritual Fitness"],
+    "series": "s001",
+    "saved": true,
+    "timestamp": "2026-03-25T09:40:00Z"
+  },
+  {
+    "id": "sn010",
+    "type": "thought",
+    "title": "Faith is a language before it's a lifestyle",
+    "content": "Before faith becomes the way you walk, it must first become the way you speak. Confession precedes manifestation. The mouth leads the life.",
+    "tags": ["faith", "confession", "language", "Faith That Speaks"],
+    "series": "s003",
+    "saved": true,
+    "timestamp": "2026-03-20T11:15:00Z"
+  },
+  {
+    "id": "sn011",
+    "type": "scripture",
+    "title": "Isaiah 55:11 — The word will accomplish",
+    "content": "So is my word that goes out from my mouth: It will not return to me empty, but will accomplish what I desire and achieve the purpose for which I sent it.",
+    "reference": "Isaiah 55:11",
+    "translation": "NIV",
+    "tags": ["scripture", "word of God", "purpose", "power"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-03-18T07:00:00Z"
+  },
+  {
+    "id": "sn012",
+    "type": "title-idea",
+    "title": "Series concept: 'The Inner Room'",
+    "content": "A series entirely about the secret place — prayer, fasting, solitude, listening. Inspired by Matthew 6. Could be a 4-week intensive.",
+    "tags": ["prayer", "secret place", "fasting", "future-series"],
+    "series": null,
+    "saved": true,
+    "timestamp": "2026-03-15T20:45:00Z"
+  }
+]

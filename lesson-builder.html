@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson Builder | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <!-- Main -->
+  <main class="main-content">
+
+    <!-- Lesson Meta Bar -->
+    <div class="lesson-meta-bar">
+      <div style="flex:1;min-width:0;">
+        <input id="lesson-title" class="lesson-title-input" type="text" placeholder="Lesson Title…" aria-label="Lesson title">
+        <input id="lesson-subtitle" class="lesson-subtitle-input" type="text" placeholder="Message subtitle or burden statement…" aria-label="Lesson subtitle">
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;">
+        <span id="lesson-status-badge" class="badge badge--draft">Draft</span>
+        <div id="autosave-indicator" class="autosave-indicator">
+          <span class="dot"></span>
+          <span class="as-text">All changes saved</span>
+        </div>
+        <a href="preach-mode.html" class="btn btn--gold btn--sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Preach Mode
+        </a>
+        <div style="position:relative;">
+          <button class="btn btn--secondary btn--sm" id="export-menu-btn" onclick="toggleExportMenu()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+          <div id="export-menu" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--bg-elevated);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:6px;min-width:180px;z-index:50;">
+            <button class="ai-action-btn" style="width:100%;" data-export="Full Lesson PDF">Full Lesson PDF</button>
+            <button class="ai-action-btn" style="width:100%;" data-export="Preach Outline PDF">Preach Outline PDF</button>
+            <button class="ai-action-btn" style="width:100%;" data-export="Handout PDF">Handout PDF</button>
+            <div class="divider" style="margin:6px 0;"></div>
+            <button class="ai-action-btn" style="width:100%;" data-export="Export to Notion">
+              <span style="font-weight:800;font-size:12px;">N</span> Export to Notion
+            </button>
+          </div>
+        </div>
+        <button class="btn btn--ghost btn--icon" id="panel-toggle" aria-label="Toggle AI panel" aria-expanded="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Split Layout -->
+    <div class="split-layout">
+
+      <!-- Left: Structure Nav -->
+      <aside class="split-sidebar">
+        <div style="padding:12px 8px 8px;border-bottom:1px solid var(--border-soft);">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);padding:0 8px;margin-bottom:8px;">Structure</div>
+          <div id="structure-nav">
+            <!-- Rendered by lesson-builder.js -->
+            <div class="structure-nav-item active">
+              <span class="sni-dot"></span>
+              <span class="sni-label">Main Burden</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:16px 8px 8px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);padding:0 8px;margin-bottom:8px;">Series</div>
+          <div id="lesson-series" style="font-size:13px;color:var(--text-secondary);padding:0 12px;">—</div>
+        </div>
+        <div style="padding:12px 8px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);padding:0 8px;margin-bottom:8px;">Last Edit</div>
+          <div id="linked-event" style="font-size:12px;color:var(--text-muted);padding:0 12px;">—</div>
+        </div>
+      </aside>
+
+      <!-- Center: Writing Area -->
+      <div class="split-main" id="lesson-main">
+
+        <!-- Main Burden Box -->
+        <div id="section-burden" style="margin-bottom:24px;">
+          <div class="burden-box">
+            <div class="burden-label">Main Burden</div>
+            <textarea id="lesson-burden" class="burden-text" rows="3"
+              placeholder="The one thing this message must accomplish in the heart of the listener…"></textarea>
+          </div>
+        </div>
+
+        <!-- Core Scripture -->
+        <div style="margin-bottom:24px;">
+          <div class="form-group">
+            <label class="form-label" style="font-family:var(--font-serif);font-size:14px;color:var(--accent-gold);opacity:0.8;">Core Scripture</label>
+            <input id="core-scripture" class="scripture-ref-input form-input" type="text" placeholder="e.g. Hebrews 4:12">
+          </div>
+        </div>
+
+        <!-- Supporting Scriptures -->
+        <div style="margin-bottom:32px;">
+          <div class="form-group">
+            <label class="form-label">Supporting Scriptures</label>
+            <input id="supporting-scriptures" class="form-input" type="text" placeholder="e.g. Romans 8:28, Jeremiah 29:11, Psalm 46:1">
+          </div>
+        </div>
+
+        <!-- Teaching Sections -->
+        <div id="section-intro" style="margin-bottom:16px;">
+          <div class="section-header">
+            <div class="section-title">Teaching Sections</div>
+            <button class="btn btn--secondary btn--sm" onclick="LWSUtils.toast('New section added','success')">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Section
+            </button>
+          </div>
+        </div>
+
+        <div id="lesson-sections" style="display:flex;flex-direction:column;gap:16px;">
+          <!-- Rendered by lesson-builder.js -->
+        </div>
+
+        <!-- Illustrations -->
+        <div style="margin-top:32px;margin-bottom:16px;">
+          <div class="section-header">
+            <div class="section-title">Illustrations</div>
+            <button class="btn btn--ghost btn--sm" onclick="LWSUtils.toast('Add illustration','default')">Add</button>
+          </div>
+          <div class="card card--flat">
+            <div class="empty-state" style="padding:24px 0;">
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div class="empty-desc" style="font-size:13px;">No illustrations yet — add a story, analogy, or real-world example to ground this message.</div>
+              <button class="btn btn--secondary btn--sm" onclick="LWSUtils.toast('Illustration modal coming','default')">+ Add Illustration</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications -->
+        <div style="margin-bottom:32px;" id="section-application">
+          <div class="section-header"><div class="section-title">Applications</div></div>
+          <div class="card">
+            <div class="form-group">
+              <label class="form-label">Practical Application Points</label>
+              <textarea class="form-textarea" placeholder="What do you want the listener to DO this week? Be specific. Be actionable." rows="4"></textarea>
+            </div>
+            <div style="margin-top:12px;" class="tags-row">
+              <span class="tag active">Practical</span>
+              <span class="tag">This Week</span>
+              <span class="tag">Challenge</span>
+              <button class="btn btn--ghost btn--sm">+ Tag</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Closing Charge -->
+        <div style="margin-bottom:32px;" id="section-closing">
+          <div class="section-header"><div class="section-title">Closing Charge</div></div>
+          <div class="card card--water">
+            <textarea class="burden-text" placeholder="End with the charge. The call. The line they will carry home." rows="3" style="color:var(--text-primary);"></textarea>
+          </div>
+        </div>
+
+        <!-- Notes / Overflow -->
+        <div style="margin-bottom:80px;" id="section-notes">
+          <div class="section-header"><div class="section-title">Notes / Overflow</div></div>
+          <div class="card card--flat">
+            <textarea class="form-textarea" placeholder="Overflow thoughts, future angles, research to revisit…" rows="6"></textarea>
+          </div>
+        </div>
+
+        <div class="mobile-nav-spacer"></div>
+      </div>
+
+      <!-- Right: AI / Tools Panel -->
+      <aside class="split-panel" id="right-panel">
+
+        <!-- Panel Tabs -->
+        <div class="panel-tabs">
+          <div class="panel-tab active" data-panel="ai">AI Assist</div>
+          <div class="panel-tab" data-panel="scripture">Scripture</div>
+          <div class="panel-tab" data-panel="snippets">Snippets</div>
+        </div>
+
+        <!-- AI Panel -->
+        <div id="panel-ai" class="panel-content">
+          <div class="ai-panel">
+            <div class="ai-panel-header">
+              <div class="ai-chip">
+                <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <div class="ai-panel-title">Writing Assist</div>
+                <div class="ai-panel-sub">Powered by GPT-4 · Connect in Settings</div>
+              </div>
+            </div>
+
+            <div class="ai-action-list">
+              <button class="ai-action-btn" data-action="expand">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="5 9 2 12 5 15"/><polyline points="9 5 12 2 15 5"/><polyline points="15 19 12 22 9 19"/><polyline points="19 9 22 12 19 15"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+                Expand this point
+              </button>
+              <button class="ai-action-btn" data-action="scriptures">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Find supporting scriptures
+              </button>
+              <button class="ai-action-btn" data-action="refine">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                Refine wording
+              </button>
+              <button class="ai-action-btn" data-action="outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                Turn into preach outline
+              </button>
+              <button class="ai-action-btn" data-action="questions">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Create discussion questions
+              </button>
+              <button class="ai-action-btn" data-action="summarize">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                Summarize section
+              </button>
+              <button class="ai-action-btn" data-action="transition">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                Suggest transitions
+              </button>
+            </div>
+
+            <!-- AI Output -->
+            <div id="ai-output" style="display:none;margin-top:12px;">
+              <div style="background:rgba(74,158,255,0.06);border:1px solid rgba(74,158,255,0.15);border-radius:var(--radius-md);padding:14px;">
+                <div class="ai-response-label" style="font-size:11px;font-weight:600;color:var(--status-progress);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;"></div>
+                <div class="ai-response-text" style="font-size:13px;color:var(--text-secondary);line-height:1.65;white-space:pre-wrap;"></div>
+              </div>
+            </div>
+
+            <!-- Connect OpenAI notice -->
+            <div style="margin-top:16px;padding:12px;background:var(--bg-elevated);border-radius:var(--radius-md);border:1px solid var(--border-soft);">
+              <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">
+                Connect your OpenAI API key in <a href="settings.html" style="color:var(--accent-orange);">Settings → Integrations</a> for live AI writing assistance.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scripture Panel -->
+        <div id="panel-scripture" class="panel-content" style="display:none;">
+          <div class="ai-panel">
+            <div style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Scripture Search</div>
+            <div class="search-bar" style="margin-bottom:16px;">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search scripture…">
+            </div>
+
+            <div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Linked Scriptures</div>
+            <div id="panel-scripture-list" style="display:flex;flex-direction:column;gap:8px;">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Snippets Panel -->
+        <div id="panel-snippets" class="panel-content" style="display:none;">
+          <div class="ai-panel">
+            <div style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Insert Snippet</div>
+            <div class="search-bar" style="margin-bottom:16px;">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search snippets…">
+            </div>
+            <div style="text-align:center;padding:16px 0;">
+              <a href="snippets.html" class="btn btn--secondary btn--sm">Open Idea Bank</a>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div><!-- /split-layout -->
+
+    <div class="mobile-nav-spacer"></div>
+  </main>
+
+  <nav id="mobile-nav" class="mobile-nav"></nav>
+</div>
+
+<script>
+function toggleExportMenu() {
+  const menu = document.getElementById('export-menu');
+  if (menu) menu.style.display = menu.style.display === 'none' ? '' : 'none';
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('export-menu');
+  const btn  = document.getElementById('export-menu-btn');
+  if (menu && btn && !btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/lesson-builder.js"></script>
+</body>
+</html>

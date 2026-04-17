@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <main class="main-content">
+
+    <header class="page-header">
+      <div class="page-header-title">Settings</div>
+      <div class="page-header-actions">
+        <button class="btn btn--primary btn--sm" onclick="LWSUtils.toast('Settings saved','success')">Save Changes</button>
+      </div>
+    </header>
+
+    <div class="page-body">
+      <div class="settings-layout">
+
+        <!-- Settings Sidebar Nav -->
+        <nav class="settings-sidebar">
+          <a class="settings-nav-item active" data-section="profile" href="#profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile
+          </a>
+          <a class="settings-nav-item" data-section="writing" href="#writing">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Writing
+          </a>
+          <a class="settings-nav-item" data-section="preach" href="#preach">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Preach Mode
+          </a>
+          <a class="settings-nav-item" data-section="integrations" href="#integrations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Integrations
+          </a>
+          <a class="settings-nav-item" data-section="storage" href="#storage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            Storage &amp; Sync
+          </a>
+          <a class="settings-nav-item" data-section="appearance" href="#appearance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Appearance
+          </a>
+        </nav>
+
+        <!-- Settings Content -->
+        <div class="settings-content">
+
+          <!-- Profile -->
+          <section id="section-profile" class="settings-section">
+            <div class="settings-section-title">Profile</div>
+            <div class="card" style="margin-bottom:24px;">
+              <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;flex-wrap:wrap;">
+                <div class="avatar avatar--xl" id="profile-avatar" style="font-size:22px;background:var(--accent-water-soft);color:var(--accent-gold);">MW</div>
+                <div>
+                  <div style="font-size:17px;font-weight:700;color:var(--text-primary);">Pastor Marcus Webb</div>
+                  <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">Living Word Church</div>
+                  <button class="btn btn--secondary btn--sm" style="margin-top:10px;" onclick="LWSUtils.toast('Avatar upload — file input integrates here','default')">Change Photo</button>
+                </div>
+              </div>
+              <div class="grid-2" style="gap:16px;">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input class="form-input" id="profile-name" type="text" value="Pastor Marcus Webb">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Role / Title</label>
+                  <input class="form-input" id="profile-role" type="text" value="Lead Pastor">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Church / Ministry</label>
+                  <input class="form-input" id="profile-church" type="text" value="Living Word Church">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input class="form-input" id="profile-email" type="email" value="marcus@livingwordchurch.org">
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:16px;">
+                <label class="form-label">Bio</label>
+                <textarea class="form-textarea" id="profile-bio" rows="3">Teacher, preacher, and student of the Word. Building disciples one lesson at a time.</textarea>
+              </div>
+            </div>
+          </section>
+
+          <!-- Writing Preferences -->
+          <section id="section-writing" class="settings-section" style="display:none;">
+            <div class="settings-section-title">Writing Preferences</div>
+            <div class="card">
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Default Bible Translation</div>
+                  <div class="settings-row-desc">Used when pulling scripture references</div>
+                </div>
+                <select class="form-input" id="verse-translation" style="width:120px;">
+                  <option value="NIV">NIV</option>
+                  <option value="ESV">ESV</option>
+                  <option value="KJV">KJV</option>
+                  <option value="NKJV">NKJV</option>
+                  <option value="NLT">NLT</option>
+                  <option value="AMP">AMP</option>
+                  <option value="MSG">The Message</option>
+                </select>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Show Word Count</div>
+                  <div class="settings-row-desc">Display word count in the lesson builder</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="wordcount-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Spell Check</div>
+                  <div class="settings-row-desc">Highlight spelling errors while writing</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="spellcheck-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Default Lesson Structure</div>
+                  <div class="settings-row-desc">Template applied when creating a new lesson</div>
+                </div>
+                <select class="form-input" style="width:180px;">
+                  <option>Standard (3 Points)</option>
+                  <option>Expository</option>
+                  <option>Topical</option>
+                  <option>Narrative</option>
+                  <option>Blank</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- Preach Mode Preferences -->
+          <section id="section-preach" class="settings-section" style="display:none;">
+            <div class="settings-section-title">Preach Mode</div>
+            <div class="card">
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Font Size</div>
+                  <div class="settings-row-desc">Default text size during delivery</div>
+                </div>
+                <select class="form-input" id="preach-fontsize" style="width:140px;">
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large" selected>Large</option>
+                  <option value="xlarge">Extra Large</option>
+                </select>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Show Timer</div>
+                  <div class="settings-row-desc">Display a stopwatch during preaching</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="preach-timer-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Show Speaker Notes</div>
+                  <div class="settings-row-desc">Display application notes in Preach Mode</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="preach-notes-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Keep Screen Awake</div>
+                  <div class="settings-row-desc">Prevent screen sleep during Preach Mode (tablet)</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="preach-awake-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Timer Alert</div>
+                  <div class="settings-row-desc">Alert when you reach this many minutes</div>
+                </div>
+                <select class="form-input" style="width:120px;">
+                  <option>None</option>
+                  <option>30 min</option>
+                  <option selected>45 min</option>
+                  <option>60 min</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- Integrations -->
+          <section id="section-integrations" class="settings-section" style="display:none;">
+            <div class="settings-section-title">Integrations</div>
+
+            <!-- OpenAI -->
+            <div class="integration-card" style="margin-bottom:12px;">
+              <div class="integration-logo integration-logo--openai">✦</div>
+              <div class="integration-info">
+                <div class="integration-name">ChatGPT / OpenAI</div>
+                <div class="integration-status" id="openai-status">Not connected</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+                <button class="btn btn--primary btn--sm" id="openai-btn" onclick="connectIntegration('openai')">Connect OpenAI</button>
+                <span style="font-size:11px;color:var(--text-muted);">GPT-4o</span>
+              </div>
+            </div>
+            <div style="background:var(--bg-soft);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:12px 16px;margin-bottom:24px;">
+              <div class="form-group">
+                <label class="form-label" style="font-size:12px;">API Key</label>
+                <input class="form-input" type="password" placeholder="sk-…your OpenAI key…" style="font-size:13px;">
+              </div>
+              <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Your key is stored locally and never sent to our servers. Used only for AI writing assistance inside the Lesson Builder.</p>
+            </div>
+
+            <!-- Notion -->
+            <div class="integration-card" style="margin-bottom:12px;">
+              <div class="integration-logo integration-logo--notion" style="font-weight:900;font-size:18px;">N</div>
+              <div class="integration-info">
+                <div class="integration-name">Notion</div>
+                <div class="integration-status" id="notion-status">Not connected</div>
+              </div>
+              <button class="btn btn--secondary btn--sm" id="notion-btn" onclick="connectIntegration('notion')">Connect Notion</button>
+            </div>
+            <div style="background:var(--bg-soft);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:12px 16px;margin-bottom:24px;">
+              <div class="form-group">
+                <label class="form-label" style="font-size:12px;">Integration Token</label>
+                <input class="form-input" type="password" placeholder="secret_…" style="font-size:13px;">
+              </div>
+              <div class="form-group" style="margin-top:10px;">
+                <label class="form-label" style="font-size:12px;">Default Export Database</label>
+                <input class="form-input" type="text" placeholder="Paste Notion database URL…" style="font-size:13px;">
+              </div>
+              <div class="settings-row" style="border:none;padding:8px 0 0;">
+                <div class="settings-row-info">
+                  <div class="settings-row-label" style="font-size:13px;">Auto-sync on lesson complete</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox">
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Google -->
+            <div class="integration-card" style="margin-bottom:12px;">
+              <div class="integration-logo integration-logo--google" style="font-weight:700;font-size:14px;">G</div>
+              <div class="integration-info">
+                <div class="integration-name">Google Account</div>
+                <div class="integration-status" id="google-status">Not connected</div>
+              </div>
+              <button class="btn btn--secondary btn--sm" id="google-btn" onclick="connectIntegration('google')">Sign in with Google</button>
+            </div>
+            <div style="background:var(--bg-soft);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:12px 16px;margin-bottom:24px;">
+              <div class="settings-row" style="border:none;padding:4px 0 8px;">
+                <div class="settings-row-info">
+                  <div class="settings-row-label" style="font-size:13px;">Cloud sync via Google Drive</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox">
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- PDF Export -->
+            <div class="integration-card" style="margin-bottom:12px;">
+              <div class="integration-logo integration-logo--pdf" style="font-weight:700;font-size:12px;">PDF</div>
+              <div class="integration-info">
+                <div class="integration-name">PDF Export</div>
+                <div class="integration-status connected">Active</div>
+              </div>
+              <button class="btn btn--secondary btn--sm" onclick="exportAllLessons()">Export All Lessons</button>
+            </div>
+          </section>
+
+          <!-- Storage -->
+          <section id="section-storage" class="settings-section" style="display:none;">
+            <div class="settings-section-title">Storage &amp; Sync</div>
+            <div class="card" style="margin-bottom:20px;">
+              <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;">
+                <div class="stat-icon stat-icon--blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:22px;font-weight:700;color:var(--text-primary);">
+                    <span id="storage-used">2.4 MB</span>
+                    <span style="font-size:14px;color:var(--text-muted);font-weight:400;"> / <span id="storage-limit">500 MB</span></span>
+                  </div>
+                  <div style="font-size:13px;color:var(--text-muted);">Local Storage Used</div>
+                </div>
+              </div>
+              <div class="progress-bar" style="height:6px;margin-bottom:20px;">
+                <div class="progress-bar-fill" style="width:0.5%;"></div>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Offline Mode</div>
+                  <div class="settings-row-desc">App works without internet connection</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="offline-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Last Cloud Sync</div>
+                  <div class="settings-row-desc">Connect Google to enable cloud sync</div>
+                </div>
+                <div style="font-size:13px;color:var(--text-muted);" id="last-sync">Never</div>
+              </div>
+              <div class="settings-row" style="border:none;">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Clear Local Cache</div>
+                  <div class="settings-row-desc">Remove app preferences from this device</div>
+                </div>
+                <button class="btn btn--secondary btn--sm" onclick="clearCache()">Clear Cache</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Appearance -->
+          <section id="section-appearance" class="settings-section" style="display:none;">
+            <div class="settings-section-title">Appearance</div>
+            <div class="card">
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Theme</div>
+                  <div class="settings-row-desc">Interface color scheme</div>
+                </div>
+                <select class="form-input" id="theme-select" style="width:140px;">
+                  <option value="dark" selected>Dark (Default)</option>
+                  <option value="light">Light</option>
+                  <option value="deep">Deep Black</option>
+                </select>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Accent Color</div>
+                  <div class="settings-row-desc">Primary brand color</div>
+                </div>
+                <select class="form-input" id="accent-select" style="width:140px;">
+                  <option value="orange" selected>Ember Orange</option>
+                  <option value="gold">Scripture Gold</option>
+                  <option value="blue">Deep Blue</option>
+                </select>
+              </div>
+              <div class="settings-row">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Animations</div>
+                  <div class="settings-row-desc">Fade-in and hover motion effects</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="animations-toggle" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-row" style="border:none;">
+                <div class="settings-row-info">
+                  <div class="settings-row-label">Compact Mode</div>
+                  <div class="settings-row-desc">Reduce spacing for more content density</div>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox">
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /settings-content -->
+      </div>
+    </div>
+
+    <div class="mobile-nav-spacer"></div>
+  </main>
+
+  <nav id="mobile-nav" class="mobile-nav"></nav>
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/settings.js"></script>
+</body>
+</html>

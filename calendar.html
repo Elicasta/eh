@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <main class="main-content">
+
+    <header class="page-header">
+      <div class="page-header-title">Teaching Calendar</div>
+      <div class="page-header-actions">
+        <div class="cal-view-tabs">
+          <div class="cal-view-tab active" data-view="month">Month</div>
+          <div class="cal-view-tab" data-view="agenda">Agenda</div>
+        </div>
+        <button class="btn btn--primary btn--sm" onclick="LWSUtils.toast('New event modal — coming soon','default')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Event
+        </button>
+      </div>
+    </header>
+
+    <div class="page-body page-body--full" style="padding:var(--sp-6) var(--sp-8);">
+
+      <div class="calendar-layout">
+
+        <!-- Left: Calendar -->
+        <div>
+          <!-- Month navigation -->
+          <div class="cal-nav">
+            <div class="cal-nav-month" id="cal-month-label">April 2026</div>
+            <div style="display:flex;gap:8px;">
+              <button class="btn btn--secondary btn--icon btn--sm" id="cal-prev" aria-label="Previous month">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="btn btn--secondary btn--sm" onclick="goToToday()">Today</button>
+              <button class="btn btn--secondary btn--icon btn--sm" id="cal-next" aria-label="Next month">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Month view -->
+          <div id="month-view">
+            <div class="cal-month-grid" id="month-grid">
+              <!-- Rendered by calendar.js -->
+            </div>
+          </div>
+
+          <!-- Agenda view (hidden by default) -->
+          <div id="agenda-view" style="display:none;">
+            <div id="agenda-list">
+              <!-- Rendered by calendar.js -->
+            </div>
+          </div>
+
+          <!-- Event type legend -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span style="width:12px;height:12px;border-radius:2px;background:var(--accent-orange);flex-shrink:0;"></span>Sunday
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span style="width:12px;height:12px;border-radius:2px;background:var(--status-progress);flex-shrink:0;"></span>Bible Study
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span style="width:12px;height:12px;border-radius:2px;background:#FF9F0A;flex-shrink:0;"></span>Youth
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span style="width:12px;height:12px;border-radius:2px;background:var(--status-preached);flex-shrink:0;"></span>Podcast
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span style="width:12px;height:12px;border-radius:2px;background:var(--accent-water-soft);flex-shrink:0;"></span>Prep Block
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Event Detail -->
+        <div>
+          <div class="card" id="event-detail-panel" style="position:sticky;top:calc(var(--topbar-h) + 24px);">
+            <div class="empty-state" style="padding:32px 0;">
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="empty-title">Select a day</div>
+              <div class="empty-desc">Click any date to see events and linked lessons.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mobile-nav-spacer"></div>
+  </main>
+
+  <nav id="mobile-nav" class="mobile-nav"></nav>
+</div>
+
+<script>
+function goToToday() {
+  const today = new Date();
+  window._currentYear  = today.getFullYear();
+  window._currentMonth = today.getMonth();
+  if (typeof updateMonthGrid === 'function') updateMonthGrid();
+  selectCalDay(LWSUtils.todayStr());
+}
+</script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/calendar.js"></script>
+</body>
+</html>
