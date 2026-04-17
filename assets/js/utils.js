@@ -103,7 +103,7 @@ const LWSUtils = (() => {
 
   function truncate(str, len = 120) {
     if (!str || str.length <= len) return str;
-    return str.slice(0, len).trim() + '…';
+    return str.slice(0, len).trim() + '\u2026';
   }
 
   function slugify(str) {
@@ -192,12 +192,18 @@ const LWSUtils = (() => {
     return String(n);
   }
 
+  /* ── Debounce ── */
+  function debounce(fn, delay = 300) {
+    let t;
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
+  }
+
   return {
     formatDate, formatRelative, formatTime, getDayName,
     getMonthName, todayStr, greeting,
     el, qs, qsa, show, hide, fadeIn, staggerFadeIn,
     truncate, slugify, initials,
     statusLabel, statusBadgeClass, snippetTypeIcon,
-    lsGet, lsSet, toast, formatNumber
+    lsGet, lsSet, toast, formatNumber, debounce
   };
 })();
