@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Preach Mode | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    /* Override app shell for preach mode */
+    body { overflow: hidden; }
+    .app-wrapper { display: block; }
+    .main-content { margin-left: 0 !important; }
+    #sidebar, #mobile-nav { display: none !important; }
+  </style>
+</head>
+<body>
+<div class="app-wrapper">
+  <main class="main-content preach-wrapper">
+
+    <!-- Preach Topbar -->
+    <div class="preach-topbar">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="lesson-builder.html" id="preach-exit" class="btn btn--ghost btn--sm" aria-label="Exit Preach Mode">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Exit
+        </a>
+        <div style="height:20px;width:1px;background:var(--border-soft);"></div>
+        <div id="preach-lesson-title" style="font-size:14px;font-weight:600;color:var(--text-secondary);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Living Word Studio</div>
+      </div>
+
+      <div class="preach-controls">
+        <!-- Timer -->
+        <div id="preach-timer" class="preach-timer">00:00</div>
+        <button class="btn btn--ghost btn--sm" id="timer-btn">Start</button>
+        <button class="btn btn--ghost btn--sm" id="timer-reset">Reset</button>
+
+        <div style="height:20px;width:1px;background:var(--border-soft);"></div>
+
+        <!-- Font controls -->
+        <div class="preach-font-controls">
+          <button class="btn btn--ghost btn--icon-sm" id="font-down" aria-label="Decrease font size">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <span style="font-size:12px;color:var(--text-muted);padding:0 4px;">Aa</span>
+          <button class="btn btn--ghost btn--icon-sm" id="font-up" aria-label="Increase font size">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+
+        <button class="btn btn--ghost btn--sm" id="notes-toggle" data-show="true">Hide Notes</button>
+        <button class="btn btn--ghost btn--sm" onclick="toggleFullscreen()">Fullscreen</button>
+      </div>
+    </div>
+
+    <!-- Progress Bar (top) -->
+    <div style="height:2px;background:rgba(255,255,255,0.06);">
+      <div class="progress-bar-fill" id="preach-progress-bar" style="height:100%;width:0%;transition:width 400ms ease;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="preach-content" id="preach-content">
+      <!-- Rendered by preach-mode.js -->
+      <div class="preach-section-label">Loading…</div>
+      <div class="preach-title" style="opacity:0.3;">Opening the Word</div>
+    </div>
+
+    <!-- Bottom Nav Bar -->
+    <div class="preach-nav-bar">
+      <button class="btn btn--secondary" id="preach-prev" aria-label="Previous section">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </button>
+
+      <!-- Section dots -->
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div id="preach-dots" class="preach-nav-sections">
+          <!-- Rendered by preach-mode.js -->
+        </div>
+        <span id="section-counter" style="font-size:12px;color:var(--text-muted);font-variant-numeric:tabular-nums;">— / —</span>
+      </div>
+
+      <button class="btn btn--primary" id="preach-next" aria-label="Next section">
+        Next
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/preach-mode.js"></script>
+</body>
+</html>

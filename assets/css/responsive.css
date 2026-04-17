@@ -1,0 +1,390 @@
+/* Living Word Studio — Responsive Design */
+
+/* ══════════════════════════════════════
+   BREAKPOINTS
+   sm:  640px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+══════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  /* Dashboard */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-side {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+
+  /* Lesson Builder Split */
+  .split-sidebar {
+    width: 180px;
+  }
+
+  .split-panel {
+    width: 260px;
+  }
+
+  /* Calendar */
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Settings */
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-sidebar {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-4);
+  }
+
+  .settings-nav-item {
+    flex: none;
+    padding: var(--sp-2) var(--sp-3);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  /* Hide Desktop Sidebar */
+  .sidebar {
+    transform: translateX(calc(-1 * var(--sidebar-w)));
+    width: var(--sidebar-w) !important;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: calc(var(--z-sidebar) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--ease-med);
+  }
+
+  .sidebar.mobile-open ~ .sidebar-overlay { opacity: 1; pointer-events: auto; }
+
+  /* Main content full width on mobile */
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  /* Show Mobile Nav */
+  .mobile-nav { display: flex; }
+  .mobile-nav-spacer { display: block; }
+
+  /* Page body */
+  .page-header {
+    padding: 0 var(--sp-5);
+  }
+
+  .page-body,
+  .page-body--full {
+    padding: var(--sp-5);
+  }
+
+  /* Dashboard */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-side {
+    grid-template-columns: 1fr;
+  }
+
+  /* Grids */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-auto {
+    grid-template-columns: 1fr;
+  }
+
+  /* Series */
+  .series-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Quick Capture */
+  .quick-capture {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--sp-2);
+  }
+
+  /* Video Grid */
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Calendar */
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cal-day-cell {
+    min-height: 56px;
+  }
+
+  .cal-dot-event { display: none; }
+
+  .cal-day-cell.has-event::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Lesson Builder — stack panels vertically */
+  .split-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .split-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    overflow: auto;
+    padding: var(--sp-3) var(--sp-4);
+    display: flex;
+    gap: var(--sp-2);
+    overflow-x: auto;
+  }
+
+  .structure-nav-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .split-main {
+    padding: var(--sp-5);
+    overflow: visible;
+  }
+
+  .split-panel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .split-panel.closed {
+    display: none;
+  }
+
+  .lesson-meta-bar {
+    padding: var(--sp-4) var(--sp-5);
+  }
+
+  .lesson-title-input {
+    font-size: var(--text-xl);
+  }
+
+  /* Snippets */
+  .snippets-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group { width: 100%; }
+
+  /* Library */
+  .library-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Preach Mode */
+  .preach-content {
+    padding: var(--sp-8) var(--sp-5);
+  }
+
+  .preach-title {
+    font-size: var(--text-3xl);
+  }
+
+  .preach-scripture {
+    font-size: var(--text-lg);
+  }
+
+  .preach-point {
+    font-size: var(--text-lg);
+  }
+
+  .preach-topbar {
+    padding: var(--sp-3) var(--sp-5);
+  }
+
+  .preach-nav-bar {
+    padding: var(--sp-4) var(--sp-5);
+  }
+
+  /* Settings */
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Greeting */
+  .greeting-text .greeting-line2 {
+    font-size: var(--text-xl);
+  }
+
+  /* Verse */
+  .verse-text {
+    font-size: var(--text-lg);
+  }
+
+  /* Modal */
+  .modal {
+    max-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 85vh;
+  }
+
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  /* Toast */
+  .toast-container {
+    bottom: calc(var(--mobile-nav-h) + var(--sp-4));
+    left: var(--sp-4);
+    right: var(--sp-4);
+  }
+
+  /* Integration cards */
+  .integration-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .series-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-action {
+    min-width: 64px;
+  }
+
+  .preach-title {
+    font-size: var(--text-2xl);
+  }
+
+  .cal-month-grid {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ── Desktop Large (≥1280px) ── */
+@media (min-width: 1280px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 380px;
+  }
+
+  .split-panel {
+    width: 360px;
+  }
+}
+
+/* ── iPad / Tablet Landscape (Preach Mode Optimized) ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .preach-content {
+    padding: var(--sp-12) var(--sp-10);
+    max-width: 100%;
+  }
+
+  .preach-title {
+    font-size: 52px;
+  }
+
+  .preach-scripture {
+    font-size: var(--text-xl);
+  }
+
+  .preach-point {
+    font-size: var(--text-xl);
+  }
+
+  .preach-topbar,
+  .preach-nav-bar {
+    padding: var(--sp-5) var(--sp-8);
+  }
+}
+
+/* ── Print / Export ── */
+@media print {
+  .sidebar,
+  .mobile-nav,
+  .page-header,
+  .btn {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    background: white;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

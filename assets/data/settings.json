@@ -1,0 +1,74 @@
+{
+  "profile": {
+    "name": "Pastor Marcus Webb",
+    "role": "Lead Pastor",
+    "church": "Living Word Church",
+    "email": "marcus@livingwordchurch.org",
+    "avatar": null,
+    "bio": "Teacher, preacher, and student of the Word. Building disciples one lesson at a time."
+  },
+  "writing": {
+    "defaultVerseTranslation": "NIV",
+    "autosaveInterval": 30,
+    "defaultLessonStructure": "standard",
+    "showWordCount": true,
+    "focusMode": false,
+    "spellcheck": true
+  },
+  "preachMode": {
+    "fontSize": "large",
+    "fontFamily": "serif",
+    "theme": "dark",
+    "showTimer": true,
+    "keepScreenAwake": true,
+    "showSpeakerNotes": true,
+    "timerAlert": 45
+  },
+  "appearance": {
+    "theme": "dark",
+    "accentColor": "orange",
+    "sidebarCollapsed": false,
+    "animationsEnabled": true,
+    "compactMode": false
+  },
+  "integrations": {
+    "openai": {
+      "connected": false,
+      "apiKeyStored": false,
+      "model": "gpt-4o",
+      "assistEnabled": false
+    },
+    "notion": {
+      "connected": false,
+      "workspaceId": null,
+      "defaultDatabase": null,
+      "autoSync": false
+    },
+    "google": {
+      "connected": false,
+      "email": null,
+      "cloudSync": false,
+      "driveFolder": null
+    },
+    "pdf": {
+      "defaultFormat": "full",
+      "includeNotes": true,
+      "includeScriptures": true,
+      "fontSize": "12pt",
+      "includeHeader": true
+    }
+  },
+  "storage": {
+    "offlineMode": true,
+    "autosaveLocal": true,
+    "lastSync": null,
+    "storageUsed": "2.4 MB",
+    "storageLimit": "500 MB"
+  },
+  "notifications": {
+    "prepReminders": true,
+    "reminderHoursBefore": 24,
+    "writingStreak": true,
+    "weeklyDigest": false
+  }
+}

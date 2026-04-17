@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snippets | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <main class="main-content">
+
+    <header class="page-header">
+      <div>
+        <div class="page-header-title">Idea Bank</div>
+        <div class="page-header-subtitle">Your second brain for sermons &amp; Bible lessons</div>
+      </div>
+      <div class="page-header-actions">
+        <button class="btn btn--primary" id="new-snippet-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Snippet
+        </button>
+      </div>
+    </header>
+
+    <div class="page-body">
+
+      <!-- Filters -->
+      <div class="snippets-filters">
+        <div class="search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="snippets-search" placeholder="Search ideas, scripture, illustrations…" aria-label="Search snippets">
+        </div>
+
+        <!-- Type filter pills -->
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button class="tag active" data-type-filter="all">All</button>
+          <button class="tag" data-type-filter="thought">Thoughts</button>
+          <button class="tag" data-type-filter="scripture">Scripture</button>
+          <button class="tag" data-type-filter="illustration">Illustrations</button>
+          <button class="tag" data-type-filter="title-idea">Title Ideas</button>
+          <button class="tag" data-type-filter="quote">Quotes</button>
+          <button class="tag" data-type-filter="question">Questions</button>
+          <button class="tag" data-type-filter="link">Links</button>
+        </div>
+
+        <!-- Series filter -->
+        <div class="filter-group">
+          <span class="filter-label">Series:</span>
+          <select class="filter-select" id="series-filter">
+            <option value="all">All Series</option>
+          </select>
+        </div>
+
+        <!-- Saved filter -->
+        <button class="tag" id="saved-filter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="11" height="11"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          Saved only
+        </button>
+      </div>
+
+      <!-- Tags Quick Filter -->
+      <div class="tags-row" style="margin-bottom:28px;">
+        <span class="text-meta" style="align-self:center;margin-right:4px;">Topics:</span>
+        <span class="tag">Faith</span>
+        <span class="tag">Prayer</span>
+        <span class="tag">Holiness</span>
+        <span class="tag">Revival</span>
+        <span class="tag">Love</span>
+        <span class="tag">Purpose</span>
+        <span class="tag">Family</span>
+        <span class="tag">Young Adults</span>
+        <span class="tag">Opening</span>
+        <span class="tag">Closing</span>
+        <span class="tag">Future Series</span>
+      </div>
+
+      <!-- Snippets Grid -->
+      <div class="grid-auto" id="snippets-grid">
+        <!-- Rendered by snippets.js -->
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+
+    </div>
+
+    <div class="mobile-nav-spacer"></div>
+  </main>
+
+  <!-- New Snippet Modal -->
+  <div id="modal-overlay" class="overlay overlay--hidden" style="display:none;">
+    <div class="modal" id="new-snippet-modal" style="display:none;">
+      <div class="modal-header">
+        <div class="modal-title">New Snippet</div>
+        <button class="btn btn--ghost btn--icon-sm" onclick="closeNewSnippet()" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Type</label>
+          <select class="form-input" id="new-snippet-type">
+            <option value="thought">Thought</option>
+            <option value="scripture">Scripture</option>
+            <option value="illustration">Illustration</option>
+            <option value="title-idea">Title Idea</option>
+            <option value="quote">Quote</option>
+            <option value="question">Question</option>
+            <option value="link">Link</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input class="form-input" id="new-snippet-title" type="text" placeholder="Give this idea a clear title…">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content</label>
+          <textarea class="form-textarea" id="new-snippet-content" rows="5" placeholder="Write out the full thought, quote, scripture, or idea…"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn--ghost" onclick="closeNewSnippet()">Cancel</button>
+        <button class="btn btn--primary" onclick="saveNewSnippet()">Save Snippet</button>
+      </div>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav"></nav>
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/snippets.js"></script>
+</body>
+</html>

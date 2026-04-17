@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Living Word Studio</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <!-- Main -->
+  <main class="main-content">
+
+    <!-- Top Bar -->
+    <header class="page-header">
+      <div>
+        <div class="page-header-title">Dashboard</div>
+      </div>
+      <div class="page-header-actions">
+        <!-- Search -->
+        <div class="search-bar" style="width:220px;">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search lessons…" aria-label="Search">
+        </div>
+        <button class="btn btn--primary" onclick="window.location.href='lesson-builder.html'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Lesson
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <div class="page-body">
+
+      <!-- Greeting -->
+      <div class="greeting-bar animate-fade-in">
+        <div class="greeting-text">
+          <div class="greeting-line1">Living Word Studio</div>
+          <div class="greeting-line2" id="greeting-text">Good morning, Pastor.</div>
+          <div class="greeting-date" id="greeting-date"></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <span class="offline-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-4 11-4 11 4 11 4"/><path d="M5 10s2.5-2.5 7-2.5 7 2.5 7 2.5"/><path d="M9 14s1-1 3-1 3 1 3 1"/><line x1="12" y1="19" x2="12.01" y2="19"/></svg>
+            Offline Ready
+          </span>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+
+        <!-- MAIN COLUMN -->
+        <div class="dashboard-main">
+
+          <!-- Daily Verse -->
+          <div class="verse-card animate-fade-in" id="daily-verse-card">
+            <div class="verse-theme">Loading today's verse…</div>
+            <div class="verse-text" style="opacity:0.4;">He will speak and it will stand…</div>
+          </div>
+
+          <!-- Continue Writing -->
+          <div class="card card--clickable animate-fade-in" id="continue-card">
+            <div class="card-eyebrow">Continue Writing</div>
+            <div style="height:120px;display:flex;align-items:center;justify-content:center;">
+              <div class="skeleton skeleton-text" style="width:60%"></div>
+            </div>
+          </div>
+
+          <!-- Current Series -->
+          <div class="animate-fade-in">
+            <div class="section-header">
+              <div class="section-title">Current Series</div>
+              <a href="library.html" class="btn btn--ghost btn--sm">View All</a>
+            </div>
+            <div class="series-grid" id="series-grid">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Quick Capture -->
+          <div class="card card--flat animate-fade-in">
+            <div class="section-header" style="margin-bottom:16px;">
+              <div class="card-title">Quick Capture</div>
+              <span class="text-meta">Capture an idea before it disappears</span>
+            </div>
+            <div class="quick-capture">
+              <span class="quick-capture-label">New:</span>
+              <button class="quick-action qa-btn" data-type="Voice Note">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+                <div class="qa-label">Voice Note</div>
+              </button>
+              <button class="quick-action qa-btn" data-type="Quick Thought">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div class="qa-label">Thought</div>
+              </button>
+              <button class="quick-action qa-btn" data-type="Scripture">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                <div class="qa-label">Scripture</div>
+              </button>
+              <button class="quick-action qa-btn" data-type="Illustration">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                <div class="qa-label">Illustration</div>
+              </button>
+              <button class="quick-action qa-btn" data-type="Question">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                <div class="qa-label">Question</div>
+              </button>
+              <button class="quick-action qa-btn" data-type="Link">
+                <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div class="qa-label">Link</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Bank -->
+          <div class="animate-fade-in">
+            <div class="section-header">
+              <div class="section-title">Lesson Video Bank</div>
+              <a href="#" class="btn btn--ghost btn--sm" onclick="LWSUtils.toast('YouTube sync coming soon','default')">View Channel</a>
+            </div>
+            <div class="video-grid" id="video-grid">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SIDE COLUMN -->
+        <div class="dashboard-side">
+
+          <!-- Calendar Preview -->
+          <div class="card animate-fade-in">
+            <div class="section-header" style="margin-bottom:16px;">
+              <div class="card-title">Upcoming</div>
+              <a href="calendar.html" class="btn btn--ghost btn--sm">Full Calendar</a>
+            </div>
+            <div id="calendar-preview" style="display:flex;flex-direction:column;gap:8px;">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Latest Message -->
+          <div class="card animate-fade-in" id="latest-message">
+            <div class="card-eyebrow">Latest Message</div>
+            <div style="height:80px;display:flex;align-items:center;justify-content:center;">
+              <div class="skeleton skeleton-text" style="width:70%"></div>
+            </div>
+          </div>
+
+          <!-- Recent Snippets -->
+          <div class="animate-fade-in">
+            <div class="section-header">
+              <div class="card-title">Recent Snippets</div>
+              <a href="snippets.html" class="btn btn--ghost btn--sm">Idea Bank</a>
+            </div>
+            <div id="snippets-preview" style="display:flex;flex-direction:column;gap:10px;">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Stats Widget -->
+          <div class="card animate-fade-in">
+            <div class="card-title" style="margin-bottom:20px;">Your Studio</div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div class="stat-widget">
+                <div class="stat-icon stat-icon--orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div>
+                  <div class="stat-value">6</div>
+                  <div class="stat-label">Total Lessons</div>
+                </div>
+              </div>
+              <div class="stat-widget">
+                <div class="stat-icon stat-icon--gold">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div>
+                  <div class="stat-value">4</div>
+                  <div class="stat-label">Active Series</div>
+                </div>
+              </div>
+              <div class="stat-widget">
+                <div class="stat-icon stat-icon--blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div>
+                  <div class="stat-value">12</div>
+                  <div class="stat-label">Snippets Saved</div>
+                </div>
+              </div>
+              <div class="stat-widget">
+                <div class="stat-icon stat-icon--green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <div>
+                  <div class="stat-value">3</div>
+                  <div class="stat-label">Messages Preached</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /page-body -->
+    <div class="mobile-nav-spacer"></div>
+  </main>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-nav" class="mobile-nav"></nav>
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
